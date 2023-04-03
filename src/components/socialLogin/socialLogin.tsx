@@ -1,4 +1,4 @@
-import styles from './loginButton.module.css'
+import styles from './socialLogin.module.css'
 
 interface PropTypes {
     image: string
