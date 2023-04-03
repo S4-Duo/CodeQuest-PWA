@@ -1,0 +1,17 @@
+.inputContainer {
+    border-radius: var(--border-radius);
+    background-color: var(--input-color);
+    padding: var(--small-spacing);
+    margin: var(--small-spacing) 0;
+}
+
+.input {
+    color: var(--input-text-color);
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+}
+
+.input:focus {
+    outline: none;
+}
