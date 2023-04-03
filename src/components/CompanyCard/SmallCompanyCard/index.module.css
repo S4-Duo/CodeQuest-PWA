@@ -1,8 +1,7 @@
 .smallCompanyCard{
     position: relative;
-    width: 90%;
-
-    margin: 1em auto;
+    width: 100%;
+    margin: var(--small-spacing) 0;
 
     background: var(--secondary-color);
     border-radius: var(--border-radius);
