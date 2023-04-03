@@ -1,4 +1,5 @@
 .homepage{
+    padding: var(--small-spacing);
     background: var(--background-color);
     height: 100%;
 }

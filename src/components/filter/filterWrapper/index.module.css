@@ -1,0 +1,11 @@
+.filterWrapper{
+    display: flex;
+    flex-direction: row;
+    column-gap: 8px;
+    width: auto;
+    overflow-x: auto;
+}
+
+.filterWrapper::-webkit-scrollbar {
+    display: none;
+}
