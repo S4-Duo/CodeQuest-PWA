@@ -1,0 +1,30 @@
+.smallCompanyCard{
+    position: relative;
+    width: 90%;
+
+    margin: 1em auto;
+
+    background: var(--secondary-color);
+    border-radius: var(--border-radius);
+    min-height: 75px;
+
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.image{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    border-bottom-right-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+.cardTitle{
+    width: 75%;
+}
+.cardDescription{
+    width: 75%;
+}

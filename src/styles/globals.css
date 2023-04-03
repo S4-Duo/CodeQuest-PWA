@@ -13,8 +13,29 @@
   margin: 0;
 }
 
+@font-face {
+  font-family: 'Gillroy Light';
+  src: url("../../fonts/Gilroy/Gilroy-Light.otf") format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gillroy Bold';
+  src: url("../../fonts/Gilroy/Gilroy-ExtraBold.otf") format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html,
 body {
+  height: 100%;
   max-width: 100vw;
   overflow-x: hidden;
+  color: white;
+  font-family: "Gilroy Light", serif;
+}
+
+#__next{
+  height: 100%;
 }
