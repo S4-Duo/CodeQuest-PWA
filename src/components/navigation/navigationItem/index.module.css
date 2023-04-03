@@ -1,0 +1,10 @@
+.navigationItem{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.image{
+    max-height: 30px;
+    padding: 5px;
+}

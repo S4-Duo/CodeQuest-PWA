@@ -17,9 +17,9 @@ export default function Login() {
                 <div className={styles.separator}>Or continue with</div>
 
                 <div className={styles.socialLoginContainer}>
-                    <SocialLogin image={"/social/Google.svg"} />
-                    <SocialLogin image={"/social/Apple.svg"} />
-                    <SocialLogin image={"/social/Facebook.svg"} />
+                    <SocialLogin image={"images/social/Google.svg"} />
+                    <SocialLogin image={"images/social/Apple.svg"} />
+                    <SocialLogin image={"images/social/Facebook.svg"} />
                 </div>
             </div>
         </div>
