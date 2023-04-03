@@ -17,7 +17,6 @@ export default function BigCompanyCard({name, shortDesc, image, longDesc}: PropT
             </div>
             <img className={styles.image} src={image}/>
             <div className={styles.footerCard}>
-                <h3 className={styles.details}>Details</h3>
                 <p className={`${styles.description} ${styles.descriptionMargin}`}>{longDesc}</p>
                 <Button text={"Start challenge"} />
             </div>
