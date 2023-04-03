@@ -1,0 +1,12 @@
+.buttonContainer {
+    background: var(--login-button);
+    padding: var(--small-spacing);
+    border-radius: var(--border-radius);
+    border: none;
+    color: white;
+    width: 100%;
+}
+
+.buttonContainer p {
+    font-size: 19px;
+}
