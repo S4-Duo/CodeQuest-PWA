@@ -1,5 +1,9 @@
 .loginContainer {
+    height: 100%;
     padding: var(--small-spacing);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .logo {
@@ -17,12 +21,17 @@
     color: #FFFFFF;
 }
 
+.socialLoginContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
 .separator {
     display: flex;
     align-items: center;
     text-align: center;
     color: white;
-    margin: var(--small-spacing);
+    margin: var(--small-spacing) 0;
 }
 
 .separator::before,

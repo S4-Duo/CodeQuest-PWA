@@ -9,14 +9,18 @@ export default function Login() {
     return (
         <div className={styles.loginContainer}>
             <h1 className={styles.logo}>Code Quest</h1>
-            <Input type={"Text"} placeholder={"Enter email"}/>
-            <Input type={"Password"} placeholder={"Password"}/>
-            <LoginButton />
+            <div className={styles.loginBottomContainer}>
+                <Input type={"Text"} placeholder={"Enter email"}/>
+                <Input type={"Password"} placeholder={"Password"}/>
+                <LoginButton />
 
-            <div className={styles.separator}>Or continue with</div>
+                <div className={styles.separator}>Or continue with</div>
 
-            <div>
-                <SocialLogin image={"Facebook"} />
+                <div className={styles.socialLoginContainer}>
+                    <SocialLogin image={"/social/Google.svg"} />
+                    <SocialLogin image={"/social/Apple.svg"} />
+                    <SocialLogin image={"/social/Facebook.svg"} />
+                </div>
             </div>
         </div>
     )
