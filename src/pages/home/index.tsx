@@ -14,5 +14,4 @@ export default function Home() {
             <SmallCompanyCard title={"Fontys"} description={"You get gefontyst very much"} image={"https://pbs.twimg.com/profile_images/1182911289355575297/Qp9L717r_400x400.jpg"}/>
         </div>
     )
-
 }

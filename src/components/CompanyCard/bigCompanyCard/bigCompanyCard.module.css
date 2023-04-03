@@ -1,0 +1,41 @@
+.bigCompanyCard {
+    background: var(--secondary-color);
+    border-radius: var(--border-radius);
+}
+
+.headerCard {
+    padding: var(--small-spacing);
+}
+
+.image {
+    width: 100%;
+}
+
+.footerCard {
+    padding: var(--small-spacing);
+}
+
+.title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.descriptionMargin {
+    margin-bottom: var(--small-spacing);
+}
+
+.details {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
