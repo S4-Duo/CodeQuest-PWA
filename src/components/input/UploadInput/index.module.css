@@ -1,0 +1,15 @@
+.inputContainer {
+    text-align: center;
+    color: black;
+    border-radius: var(--border-radius);
+    background-color: var(--input-color);
+    padding: var(--small-spacing);
+    margin: var(--small-spacing) 0;
+}
+
+.inputHide {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
