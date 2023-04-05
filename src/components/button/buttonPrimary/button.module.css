@@ -4,6 +4,7 @@
     border: none;
     border-radius: var(--border-radius);
     width: 100%;
+    color: #381E72;
 }
 
 .buttonText {

@@ -2,7 +2,7 @@ import {useRouter} from "next/router";
 import {useState} from "react";
 import styles from "./index.module.css"
 import SmallTitle from "@/components/SmallTitle";
-import Button from "@/components/button/button";
+import ButtonPrimary from "@/components/button/buttonPrimary/button";
 import Editor from 'react-simple-code-editor';
 import {highlight, languages} from 'prismjs';
 import 'prismjs/components/prism-clike';
@@ -67,7 +67,7 @@ export default function ChallengePage() {
                         <FullWidthLine/>
                     </div>
                     <div className={styles.buttonWrapper}>
-                        <Button text={"Start Challenge"} onClick={() => {
+                        <ButtonPrimary text={"Start Challenge"} onClick={() => {
                             setProgress(Progress.progress)
                         }}/>
                     </div>
@@ -95,9 +95,9 @@ export default function ChallengePage() {
                     </div>
                     <div className={styles.buttonWrapper}>
                         {
-                            isLastQuestion() ? <Button text={"Finish challenge"} onClick={() => {
+                            isLastQuestion() ? <ButtonPrimary text={"Finish challenge"} onClick={() => {
                                 setProgress(Progress.ended)
-                            }}/> : <Button text={"Next Question"} onClick={() => {
+                            }}/> : <ButtonPrimary text={"Next Question"} onClick={() => {
                                 setCurrentQuestion(currentQuestion + 1)
                             }}/>
                         }
@@ -120,7 +120,7 @@ export default function ChallengePage() {
                         <FullWidthLine/>
                     </div>
                     <div className={styles.buttonWrapper}>
-                        <Button text={"Send Resume"} onClick={() => {
+                        <ButtonPrimary text={"Send Resume"} onClick={() => {
                             console.log("Send resume")
                         }}/>
                     </div>

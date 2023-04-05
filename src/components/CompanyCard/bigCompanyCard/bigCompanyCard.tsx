@@ -1,5 +1,5 @@
 import styles from "./bigCompanyCard.module.css";
-import Button from "@/components/button/button";
+import Button from "@/components/button/buttonPrimary/button";
 import {useRouter} from "next/router";
 
 interface PropTypes {
@@ -25,7 +25,7 @@ export default function BigCompanyCard({name, shortDesc, image, longDesc}: PropT
             <img className={styles.image} src={image}/>
             <div className={styles.footerCard}>
                 <p className={`${styles.description} ${styles.descriptionMargin}`}>{longDesc}</p>
-                <Button text={"Go to challenge"} onClick={startChallenge}/>
+                <Button onClick={startChallenge} text={"Go to challenge"} />
             </div>
         </div>
     )

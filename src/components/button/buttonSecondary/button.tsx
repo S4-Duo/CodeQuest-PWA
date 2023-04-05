@@ -1,13 +1,13 @@
 import styles from "./button.module.css"
 
 interface PropTypes {
-    text: string,
+    text: string
     onClick: () => void
 }
 
-export default function Button({text, onClick}: PropTypes) {
+export default function ButtonSecondary({text, onClick}: PropTypes) {
     return (
-        <button className={styles.button} onClick={onClick}>
+        <button onClick={onClick} className={styles.button}>
             <p className={styles.buttonText}>{text}</p>
         </button>
     )
