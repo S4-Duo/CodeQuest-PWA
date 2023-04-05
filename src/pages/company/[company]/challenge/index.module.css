@@ -1,0 +1,46 @@
+.challengePage{
+    position: relative;
+    padding: var(--small-spacing);
+    overflow-y: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonWrapper{
+    margin-top: auto;
+}
+
+.rulesWrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.companyName{
+    margin-bottom: var(--small-spacing);
+}
+
+.statsText{
+    margin-bottom: var(--small-spacing);
+}
+
+.ruleWrapper h2{
+    padding: 8px;
+}
+
+.questionWrapper{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 50%;
+}
+
+.editor{
+    position: absolute;
+    height: 50%;
+    border: 2px solid black;
+    background: #2F2647;
+    border-radius: var(--border-radius);
+}

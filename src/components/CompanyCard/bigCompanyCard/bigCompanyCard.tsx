@@ -1,14 +1,21 @@
 import styles from "./bigCompanyCard.module.css";
 import Button from "@/components/button/button";
+import {useRouter} from "next/router";
 
 interface PropTypes {
-    name: string,
+    name: string | undefined,
     shortDesc: string,
     image: string,
     longDesc: string
 }
 
 export default function BigCompanyCard({name, shortDesc, image, longDesc}: PropTypes){
+    const router = useRouter()
+    const { company } = router.query
+
+    function startChallenge(){
+        router.push(`/company/${company}/challenge`)
+    }
     return(
         <div className={styles.bigCompanyCard}>
             <div className={styles.headerCard}>
@@ -18,7 +25,7 @@ export default function BigCompanyCard({name, shortDesc, image, longDesc}: PropT
             <img className={styles.image} src={image}/>
             <div className={styles.footerCard}>
                 <p className={`${styles.description} ${styles.descriptionMargin}`}>{longDesc}</p>
-                <Button text={"Start challenge"} />
+                <Button text={"Go to challenge"} onClick={startChallenge}/>
             </div>
         </div>
     )

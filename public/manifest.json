@@ -1,6 +1,6 @@
 {
-  "name": "Prototype-PWA",
-  "short_name": "PPWA",
+  "name": "CodeQuest-PWA",
+  "short_name": "CQ",
   "theme_color": "#008eff",
   "background_color": "#000000",
   "display": "fullscreen",
