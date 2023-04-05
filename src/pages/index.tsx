@@ -28,7 +28,7 @@ export default function Home() {
                   <div className={styles.socialLoginContainer}>
                       <SocialLogin image={"images/social/Google.svg"} />
                       <SocialLogin image={"images/social/Apple.svg"} />
-                      <SocialLogin image={"images/social/Facebook.svg"} />
+                      <SocialLogin image={"images/social/Github.png"} />
                   </div>
               </div>
           </div>
