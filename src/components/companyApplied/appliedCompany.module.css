@@ -1,0 +1,42 @@
+.appliedContainer {
+    background: var(--secondary-color);
+    border-radius: var(--border-radius);
+}
+
+.appliedHeader {
+    padding: var(--small-spacing);
+}
+
+.appliedHeader h2 {
+    font-size: 20px;
+    margin-bottom: calc(var(--small-spacing) / 2);
+}
+
+.appliedImage {
+    width: 100%;
+}
+
+.appliedBody {
+    padding: var(--small-spacing);
+    font-size: 12px;
+    color: #CAC4D0;
+}
+
+.appliedFooter {
+    display: flex;
+    justify-content: flex-end;
+    padding: var(--small-spacing);
+}
+
+.appliedBody p {
+    margin-bottom: calc(var(--small-spacing) / 2);
+}
+
+.buttonContainer {
+    width: 40%;
+}
+
+.secondButton {
+    width: 40%;
+    margin-left: var(--small-spacing);
+}

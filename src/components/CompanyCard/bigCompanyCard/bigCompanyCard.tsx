@@ -1,5 +1,5 @@
 import styles from "./bigCompanyCard.module.css";
-import Button from "@/components/button/button";
+import Button from "@/components/button/buttonPrimary/button";
 
 interface PropTypes {
     name: string,
@@ -19,7 +19,7 @@ export default function BigCompanyCard({name, shortDesc, image, longDesc}: PropT
             <div className={styles.footerCard}>
                 <h3 className={styles.details}>Details</h3>
                 <p className={`${styles.description} ${styles.descriptionMargin}`}>{longDesc}</p>
-                <Button text={"Start challenge"} />
+                <Button onClick={() => {}} text={"Start challenge"} />
             </div>
         </div>
     )
