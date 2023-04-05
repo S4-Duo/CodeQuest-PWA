@@ -1,5 +1,8 @@
 import Head from 'next/head'
-import styles from '@/styles/Home.module.css'
+import Input from "@/components/input/input";
+import LoginButton from "@/components/loginButton/loginButton";
+import SocialLogin from "@/components/socialLogin/socialLogin";
+import styles from "./login.module.css"
 
 
 export default function Home() {
@@ -13,7 +16,22 @@ export default function Home() {
         <link rel="apple-touch-icon" href="/favicon.ico" />
       </Head>
       <main>
-        <p>Hello world</p>
+          <div className={styles.loginContainer}>
+              <h1 className={styles.logo}>Code Quest</h1>
+              <div className={styles.loginBottomContainer}>
+                  <Input type={"Text"} placeholder={"Enter email"}/>
+                  <Input type={"Password"} placeholder={"Password"}/>
+                  <LoginButton />
+
+                  <div className={styles.separator}>Or continue with</div>
+
+                  <div className={styles.socialLoginContainer}>
+                      <SocialLogin image={"images/social/Google.svg"} />
+                      <SocialLogin image={"images/social/Apple.svg"} />
+                      <SocialLogin image={"images/social/Facebook.svg"} />
+                  </div>
+              </div>
+          </div>
       </main>
     </>
   )

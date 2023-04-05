@@ -1,6 +1,5 @@
 .loginContainer {
-    height: 100%;
-    padding: var(--small-spacing);
+    padding: 0 var(--small-spacing);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
