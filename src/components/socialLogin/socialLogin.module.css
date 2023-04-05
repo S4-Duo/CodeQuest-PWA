@@ -9,3 +9,7 @@
     width: 107px;
     height: 54px;
 }
+
+.buttonContainer img {
+    height: 50%;
+}
