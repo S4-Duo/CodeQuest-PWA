@@ -4,9 +4,16 @@ import LoginButton from "@/components/loginButton/loginButton";
 import SocialLogin from "@/components/socialLogin/socialLogin";
 import styles from "./login.module.css"
 import {signIn, useSession} from "next-auth/react";
+import {useEffect} from "react";
+import {useRouter} from "next/router";
 
 export default function Home() {
     const { data: session } = useSession()
+    const router = useRouter();
+
+    useEffect(() => {
+        session && router.push("/home")
+    })
 
   return (
     <>
