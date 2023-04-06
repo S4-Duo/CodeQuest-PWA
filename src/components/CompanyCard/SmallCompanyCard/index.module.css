@@ -1,8 +1,7 @@
 .smallCompanyCard{
     position: relative;
     width: 100%;
-    margin: var(--small-spacing) 0;
-
+    margin: calc(var(--small-spacing) / 2) 0;
     background: var(--secondary-color);
     border-radius: var(--border-radius);
     min-height: 75px;
@@ -21,11 +20,14 @@
     border-bottom-right-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
     object-fit: cover;
+    background: white;
 }
 
 .cardTitle{
     width: 75%;
+    margin-bottom: calc(var(--small-spacing) / 2);
 }
+
 .cardDescription{
     text-overflow: ellipsis;
     overflow: hidden;

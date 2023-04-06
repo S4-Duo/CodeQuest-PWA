@@ -1,0 +1,32 @@
+.profilePage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 var(--small-spacing);
+}
+
+.userImage {
+    border-radius: 50%;
+    width: 35%;
+    max-width: 200px;
+}
+
+.userName {
+    font-size: 20px;
+    margin: 0.5em;
+}
+
+.userDescription {
+    font-size: 14px;
+}
+
+.secondDescription {
+    margin-bottom: var(--small-spacing);
+}
+
+.signOut {
+    margin-top: var(--small-spacing);
+    padding-bottom: 6em;
+    color: RGB(255, 59, 48);
+    font-weight: 600;
+}

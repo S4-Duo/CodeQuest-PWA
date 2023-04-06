@@ -5,21 +5,24 @@ import {useEffect, useState} from "react";
 import {ICompanie} from "@/interfaces/ICompany";
 
 interface Proptypes{
-    company: ICompanie
+    title: String,
+    description: String,
+    image: any,
+    link: String
 }
 
-export default function SmallCompanyCard({company}: Proptypes){
+export default function SmallCompanyCard({title, description, image, link}: Proptypes){
     const router = useRouter()
 
     function goToCompanyDetail(){
-        router.push(`/company/${company.guid}/detail`)
+        router.push(`${link}`)
     }
 
     return(
         <div className={styles.smallCompanyCard} onClick={goToCompanyDetail}>
-            <h4 className={styles.cardTitle}>{company.name}</h4>
-            <p className={styles.cardDescription}>{company.description}</p>
-            <img src={company.imageUrl} className={styles.image}/>
+            <h4 className={styles.cardTitle}>{title}</h4>
+            <p className={styles.cardDescription}>{description}</p>
+            <img src={image} className={styles.image}/>
         </div>
     )
 }

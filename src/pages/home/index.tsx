@@ -6,9 +6,9 @@ import FilterWrapper from "@/components/filter/filterWrapper";
 import Navigation from "@/components/navigation";
 import JSONCompanies  from "@/storage/companies.json"
 import {useEffect, useState} from "react";
-import {ICompanie} from "@/interfaces/ICompany";
+import {ICompany} from "@/interfaces/ICompany";
 export default function Home() {
-    const [companies, setCompanies] = useState<ICompanie[]>()
+    const [companies, setCompanies] = useState<ICompany[]>()
     const [errorMessage, setErrorMessage] = useState<string>()
 
     useEffect(() => {
@@ -26,9 +26,9 @@ export default function Home() {
             <FilterWrapper/>
             <div className={styles.companiesWrapper}>
                 {
-                    companies?.map((company, key) => {
+                    companies?.map((company: ICompany, key) => {
                         return (
-                            <SmallCompanyCard company={company} key={key}/>
+                            <SmallCompanyCard key={key} title={company.name} link={`/company/${company.guid}/detail`} description={company.description} image={company.imageUrl}/>
                         )
                     })
                 }
