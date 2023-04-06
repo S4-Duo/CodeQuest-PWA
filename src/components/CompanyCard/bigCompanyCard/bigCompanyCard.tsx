@@ -1,10 +1,10 @@
 import styles from "./bigCompanyCard.module.css";
 import Button from "@/components/button/buttonPrimary/button";
 import {useRouter} from "next/router";
-import {ICompanie} from "@/interfaces/ICompany";
+import {ICompany} from "@/interfaces/ICompany";
 
 interface PropTypes {
-    Company: ICompanie
+    Company: ICompany
 }
 
 export default function BigCompanyCard({Company}: PropTypes){

@@ -2,7 +2,7 @@ import styles from "./index.module.css"
 import {useRouter} from "next/router";
 import JSONCompanies from "@/storage/companies.json"
 import {useEffect, useState} from "react";
-import {ICompanie} from "@/interfaces/ICompany";
+import {ICompany} from "@/interfaces/ICompany";
 
 interface Proptypes{
     title: String,

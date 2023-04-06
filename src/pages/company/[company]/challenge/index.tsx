@@ -9,11 +9,8 @@ import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/themes/prism.css';
 import Input from "@/components/input/input";
-import treeAdapter from "parse5/lib/tree-adapters/default";
 import FullWidthLine from "@/components/fullWidthLine";
-import ButtonSecondary from "@/components/button/buttonSecondary/button";
 import UploadInput from "@/components/input/UploadInput"; //Example style, you can use another\
-import JSONData from "@/storage/challenges.json"
 import JSONCompany from "@/storage/companies.json"
 import {IChallenge} from "@/interfaces/IChallenge";
 import {ICompany} from "@/interfaces/ICompany";
@@ -40,24 +37,18 @@ export default function ChallengePage() {
     useEffect(() => {
         console.log(router.isReady)
         if (router.isReady){
-            const test = JSONCompany.companies.find(item => item.guid === company) as ICompany
-            setCurrentCompany(currentCompany => ({
-                ...currentCompany,
-                ...test
-            }))
-            setChallenges(currentCompany?.challenge.challenges)
-            setInitialTime(currentCompany?.challenge.time)
-            setDifficulty(currentCompany?.challenge.difficulty)
-            setLanguage(currentCompany?.challenge.language)
+            setCurrentCompany(JSONCompany.companies.find(item => item.guid === company) as ICompany)
+            setChallenges(currentCompany?.challenge?.challenges)
+            setInitialTime(currentCompany?.challenge?.time)
+            setDifficulty(currentCompany?.challenge?.difficulty)
+            setLanguage(currentCompany?.challenge?.language)
         }
-    }, [router])
+    }, [company, currentCompany, router])
 
 
     function isLastQuestion(): boolean {
-        if (currentQuestion == challenges!.length - 1) {
-            return true
-        }
-        return false
+        return currentQuestion == challenges!.length - 1;
+
     }
 
     return (
@@ -137,8 +128,6 @@ export default function ChallengePage() {
                     </div>
                 </> : <></>
             }
-
-
         </div>
     )
 }
