@@ -2,25 +2,30 @@ import BigCompanyCard from "@/components/CompanyCard/bigCompanyCard/bigCompanyCa
 import styles from "./index.module.css"
 import SmallTitle from "@/components/SmallTitle";
 import Navigation from "@/components/navigation";
+import {useEffect, useState} from "react";
+import {ICompanie} from "@/interfaces/ICompany";
+import JSONCompanies from "@/storage/companies.json";
 
 interface PropTypes {
-    company: string | undefined
+    wholeCompany: ICompanie
 
 }
 export async function getServerSideProps(context: any) {
     const { company } = context.query
+    const wholeCompany: ICompanie | undefined = JSONCompanies.companies.find(newCompany => newCompany.guid === company)
     return {
         props: {
-            company
+            wholeCompany
         },
     }
 }
-export default function CompanyDetail({company}: PropTypes) {
+export default function CompanyDetail({wholeCompany}: PropTypes) {
+    console.log(wholeCompany)
 
     return (
         <div className={styles.companyDetailPage}>
             <SmallTitle/>
-            <BigCompanyCard name={company?.toString()} shortDesc={"A company that sells ships"} image={"/images/asml.png"} longDesc={"In fact, we’re probably a part of the electronic device you’re using right now. Our lithography technology is fundamental to mass producing semiconductor chips. With it, the world’s top chipmakers are creating microchips that are more powerful, faster and energy efficient."} />
+            <BigCompanyCard Company={wholeCompany}/>
             <Navigation/>
         </div>
     )

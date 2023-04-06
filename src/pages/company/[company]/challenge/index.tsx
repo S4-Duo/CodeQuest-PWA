@@ -1,5 +1,5 @@
 import {useRouter} from "next/router";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import styles from "./index.module.css"
 import SmallTitle from "@/components/SmallTitle";
 import ButtonPrimary from "@/components/button/buttonPrimary/button";
@@ -13,7 +13,10 @@ import treeAdapter from "parse5/lib/tree-adapters/default";
 import FullWidthLine from "@/components/fullWidthLine";
 import ButtonSecondary from "@/components/button/buttonSecondary/button";
 import UploadInput from "@/components/input/UploadInput"; //Example style, you can use another\
-
+import JSONData from "@/storage/challenges.json"
+import JSONCompany from "@/storage/companies.json"
+import {IChallenge} from "@/interfaces/IChallenge";
+import {ICompany} from "@/interfaces/ICompany";
 
 enum Progress {
     start,
@@ -27,27 +30,31 @@ export default function ChallengePage() {
 
     const [progress, setProgress] = useState<Progress>(Progress.start)
     const [currentQuestion, setCurrentQuestion] = useState<number>(0);
-    const questions = [
-        {
-            question: "const data = 10",
-            answer: "10"
-        },
-        {
-            question: "const data = (1000 / 50) ",
-            answer: "20"
-        },
-        {
-            question: "const data = 10",
-            answer: "10"
-        },
-        {
-            question: "Last question",
-            answer: "20"
-        },
-    ]
+
+    const [currentCompany, setCurrentCompany] = useState<ICompany>()
+    const [challenges, setChallenges] = useState<IChallenge[]>()
+    const [initialTime, setInitialTime] = useState<string>()
+    const [difficulty, setDifficulty] = useState<string>()
+    const [language, setLanguage] = useState<string>()
+
+    useEffect(() => {
+        console.log(router.isReady)
+        if (router.isReady){
+            const test = JSONCompany.companies.find(item => item.guid === company) as ICompany
+            setCurrentCompany(currentCompany => ({
+                ...currentCompany,
+                ...test
+            }))
+            setChallenges(currentCompany?.challenge.challenges)
+            setInitialTime(currentCompany?.challenge.time)
+            setDifficulty(currentCompany?.challenge.difficulty)
+            setLanguage(currentCompany?.challenge.language)
+        }
+    }, [router])
+
 
     function isLastQuestion(): boolean {
-        if (currentQuestion == questions.length - 1) {
+        if (currentQuestion == challenges!.length - 1) {
             return true
         }
         return false
@@ -60,12 +67,12 @@ export default function ChallengePage() {
                     <SmallTitle/>
                     {/*Here are coming all the rules before the challenge is started*/}
                     <div className={styles.rulesWrapper}>
-                        <h2 className={styles.companyName}>{company}</h2>
+                        <h2 className={styles.companyName}>{currentCompany?.name}</h2>
                         <FullWidthLine/>
-                        <p className={styles.statsText}>Questions: 20</p>
-                        <p className={styles.statsText}>Time: 10:000</p>
-                        <p className={styles.statsText}>Language: Javascript (JS)</p>
-                        <p className={styles.statsText}>Difficulty: Medium</p>
+                        <p className={styles.statsText}>Questions: {challenges?.length}</p>
+                        <p className={styles.statsText}>Time: {initialTime}</p>
+                        <p className={styles.statsText}>Language: {language}</p>
+                        <p className={styles.statsText}>Difficulty: {difficulty}</p>
                         <FullWidthLine/>
                     </div>
                     <div className={styles.buttonWrapper}>
@@ -84,7 +91,7 @@ export default function ChallengePage() {
                     <div className={styles.questionWrapper}>
                         <Editor
                             className={styles.editor}
-                            value={questions[currentQuestion].question}
+                            value={challenges![currentQuestion].challenge}
                             highlight={code => highlight(code, languages.javascript, 'javascript')}
                             padding={10}
                             style={{

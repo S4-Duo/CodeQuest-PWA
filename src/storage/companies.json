@@ -1,0 +1,59 @@
+{
+  "companies": [
+    {
+      "guid": "4289f6c0-7ba2-43e1-9f99-75df8cd39ce6",
+      "name": "ASML",
+      "description": "ASML is a Dutch company that is a leading manufacturer of semiconductor lithography equipment used in the production of integrated circuits or chips. The company was founded in 1984 and is headquartered in Veldhoven, Netherlands.",
+      "imageUrl": "/images/companies/asml.png",
+      "challenge": {
+        "time": "10.00",
+        "difficulty": "Medium",
+        "language": "Javascript",
+        "challenges": [
+          {
+            "challenge": "const array = [10, 2, 5, 1, 9];\narray.sort();\nconsole.log(array);",
+            "answer": "[1, 10, 2, 5, 9]"
+          },
+          {
+            "challenge": "const arr1 = [1, 2, 3];\nconst arr2 = [4, 5, 6];\nconst arr3 = [...arr1, ...arr2];\nconst [a, b, c, d, e, f] = arr3;\nconst obj1 = {a: 1, b: 2};\nconst obj2 = {c: 3, d: 4};\nconst obj3 = {...obj1, ...obj2};\nconst {a: x, b: y, ...rest} = obj3;\nconsole.log(rest);",
+            "answer": "{c: 3, d: 4}"
+          },
+          {
+            "challenge": "const obj = {a: {b: {c: 'hello'}}};\nconst {a: {b: {c}}} = obj;\nc = 'world';\nconsole.log(obj.a.b.c);",
+            "answer": "hello"
+          },
+          {
+            "challenge": "let a = {x: 1};\nlet b = {y: 2};\na[b] = 3;\nconsole.log(a[b]);",
+            "answer": "3"
+          },
+          {
+            "challenge": "const obj1 = {a: 1, b: 2};\nconst obj2 = {a: {b: 2}};\nconst obj3 = Object.assign({}, obj2, obj1);\nconst obj4 = JSON.parse(JSON.stringify(obj3));\nobj4.a.b = 3;\nconsole.log(obj2.a.b);",
+            "answer": "2"
+          },
+          {
+            "challenge": "let a = 1;\nlet b = 2;\nlet c = 3;\n\nif (a < b && b < c && c > a) {\n  console.log('true');\n} else {\n  console.log('false');\n}",
+            "answer": "2"
+          }
+        ]
+      }
+    },
+    {
+      "guid": "b02c315f-7ed9-4c24-a24a-7b7b46ea42b4",
+      "name": "Cha3ter",
+      "description": "An average tech company is a business that specializes in creating and selling technology products or services. These companies may develop software, hardware, or both, and they often have a focus on innovation and staying ahead of the curve in terms of technological advancements. Many tech companies are headquartered in areas known for their concentration of technology firms, such as Silicon Valley, and they often employ highly skilled workers in areas such as engineering, design, and programming. Some common examples of tech companies include software giants like Microsoft and Google, consumer electronics companies like Apple and Samsung, and social media platforms like Facebook and Twitter.\n\n\n\n",
+      "imageUrl": "/images/companies/chabter.png"
+    },
+    {
+      "guid": "ad0654a8-5372-4a51-8725-173e3d08e95c",
+      "name": "Fontys",
+      "description": "Fontys University of Applied Sciences is a university located in Eindhoven, a city in the southern part of the Netherlands. It was founded in 1996 and has since grown to become one of the largest universities of applied sciences in the country.",
+      "imageUrl": "/images/companies/fontys.jpg"
+    },
+    {
+      "guid": "6ec8a969-03ef-42c6-b72b-69c57174dd91",
+      "name": "Philips",
+      "description": "Philips is a Dutch multinational technology company that specializes in consumer electronics, healthcare equipment, and lighting products. Founded in 1891, the company has a long history of innovation and has been responsible for many technological advancements, including the invention of the compact audio cassette and the development of the CD, DVD, and Blu-ray Disc formats. In recent years, Philips has focused on the healthcare sector and has become a leading provider of medical imaging equipment, patient monitoring systems, and healthcare software solutions. The company also continues to manufacture a wide range of consumer electronics products, including televisions, audio equipment, and household appliances. Philips is known for its commitment to sustainability and has set ambitious goals to become carbon-neutral and achieve a circular economy by 2025.",
+      "imageUrl": "/images/companies/philips.png"
+    }
+  ]
+}
