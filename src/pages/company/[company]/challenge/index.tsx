@@ -25,6 +25,8 @@ export default function ChallengePage() {
     const router = useRouter()
     const {company} = router.query
 
+    let [pageLeave, setPageLeave] = useState<number>(0)
+
     const [progress, setProgress] = useState<Progress>(Progress.start)
     const [currentQuestion, setCurrentQuestion] = useState<number>(0);
 
@@ -35,7 +37,15 @@ export default function ChallengePage() {
     const [language, setLanguage] = useState<string>()
 
     useEffect(() => {
-        console.log(router.isReady)
+        window.onfocus = () => {
+            if (progress == Progress.progress) {
+                setPageLeave(pageLeave += 1)
+            }
+        }
+    })
+
+
+    useEffect(() => {
         if (router.isReady){
             setCurrentCompany(JSONCompany.companies.find(item => item.guid === company) as ICompany)
             setChallenges(currentCompany?.challenge?.challenges)
@@ -48,13 +58,13 @@ export default function ChallengePage() {
 
     function isLastQuestion(): boolean {
         return currentQuestion == challenges!.length - 1;
-
     }
 
     return (
         <div className={styles.challengePage}>
             {
-                (progress == Progress.start) ? <>
+                (progress == Progress.start) &&
+                <>
                     <SmallTitle/>
                     {/*Here are coming all the rules before the challenge is started*/}
                     <div className={styles.rulesWrapper}>
@@ -73,11 +83,11 @@ export default function ChallengePage() {
                     </div>
 
 
-                </> : <></>
+                </>
             }
-
             {
-                (progress == Progress.progress) ? <>
+                (progress == Progress.progress) &&
+                <>
                     <SmallTitle/>
                     <div className={styles.questionWrapper}>
                         <Editor
@@ -95,20 +105,19 @@ export default function ChallengePage() {
                     </div>
                     <div className={styles.buttonWrapper}>
                         {
-                            isLastQuestion() ? <ButtonPrimary text={"Finish challenge"} onClick={() => {
-                                setProgress(Progress.ended)
-                            }}/> : <ButtonPrimary text={"Next Question"} onClick={() => {
-                                setCurrentQuestion(currentQuestion + 1)
-                            }}/>
+                            isLastQuestion()
+                            ?
+                            <ButtonPrimary text={"Finish challenge"} onClick={() => setProgress(Progress.ended)}/>
+                            :
+                            <ButtonPrimary text={"Next Question"} onClick={() => {setCurrentQuestion(currentQuestion + 1)}}/>
                         }
                     </div>
-                </> : <></>
+                </>
             }
-
             {
-                (progress == Progress.ended) ? <>
+                (progress == Progress.ended) &&
+                <>
                     <SmallTitle/>
-                    {/*Here are coming all the rules before the challenge is started*/}
                     <div className={styles.rulesWrapper}>
                         <h2 className={styles.companyName}>19/20 Correct</h2>
                         <FullWidthLine/>
@@ -118,15 +127,14 @@ export default function ChallengePage() {
                         <p className={styles.statsText}>Language: Javascript (JS)</p>
                         <p className={styles.statsText}>Difficulty: Medium</p>
                         <FullWidthLine/>
+                        <p className={styles.statsText}>Page leaves: {pageLeave}</p>
                     </div>
                     <div className={styles.buttonWrapper}>
                         <UploadInput placeholder={"Upload Resume"}/>
                         <Input placeholder={"Write a motivation..."} type={"text"}/>
-                        <ButtonPrimary text={"Send Resume"} onClick={() => {
-                            console.log("Send resume")
-                        }}/>
+                        <ButtonPrimary text={"Send Resume"} onClick={() => {}}/>
                     </div>
-                </> : <></>
+                </>
             }
         </div>
     )
