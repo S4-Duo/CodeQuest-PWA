@@ -1,12 +1,10 @@
 .smallCompanyCard{
     position: relative;
     width: 100%;
-    margin: var(--small-spacing) 0;
-
+    margin: calc(var(--small-spacing) / 2) 0;
     background: var(--secondary-color);
     border-radius: var(--border-radius);
     min-height: 75px;
-
     display: flex;
     flex-direction: column;
     padding: 1em;
@@ -19,11 +17,14 @@
     height: 100%;
     border-bottom-right-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
+    background: white;
 }
 
 .cardTitle{
     width: 75%;
+    margin-bottom: calc(var(--small-spacing) / 2);
 }
+
 .cardDescription{
     width: 75%;
 }

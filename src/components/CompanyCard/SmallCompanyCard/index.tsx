@@ -1,18 +1,18 @@
 import styles from "./index.module.css"
 import {useRouter} from "next/router";
-import {func} from "prop-types";
 
 interface Proptypes{
     title: String,
     description: String,
-    image: any
+    image: any,
+    link: String
 }
 
-export default function SmallCompanyCard({title, description, image}: Proptypes){
+export default function SmallCompanyCard({title, description, image, link}: Proptypes){
     const router = useRouter()
 
     function goToCompanyDetail(){
-        router.push(`/company/${title}/detail`)
+        router.push(`${link}`)
     }
 
     return(
