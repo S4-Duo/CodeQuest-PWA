@@ -2,11 +2,12 @@ import styles from './socialLogin.module.css'
 
 interface PropTypes {
     image: string
+    onClick: () => void
 }
 
-export default function SocialLogin({image}: PropTypes) {
+export default function SocialLogin({image, onClick}: PropTypes) {
     return (
-        <button className={styles.buttonContainer}>
+        <button onClick={onClick} className={styles.buttonContainer}>
             <img src={image} />
         </button>
     )

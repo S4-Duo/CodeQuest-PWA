@@ -3,9 +3,11 @@ import Input from "@/components/input/input";
 import LoginButton from "@/components/loginButton/loginButton";
 import SocialLogin from "@/components/socialLogin/socialLogin";
 import styles from "./login.module.css"
-
+import {signIn, useSession} from "next-auth/react";
 
 export default function Home() {
+    const { data: session } = useSession()
+
   return (
     <>
       <Head>
@@ -26,9 +28,9 @@ export default function Home() {
                   <div className={styles.separator}>Or continue with</div>
 
                   <div className={styles.socialLoginContainer}>
-                      <SocialLogin image={"images/social/Google.svg"} />
-                      <SocialLogin image={"images/social/Apple.svg"} />
-                      <SocialLogin image={"images/social/Github.png"} />
+                      <SocialLogin onClick={() => signIn("google")} image={"images/social/Google.svg"} />
+                      <SocialLogin onClick={() => signIn()} image={"images/social/Apple.svg"} />
+                      <SocialLogin onClick={() => signIn("github")} image={"images/social/Github.png"} />
                   </div>
               </div>
           </div>
