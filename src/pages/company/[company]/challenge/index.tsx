@@ -10,7 +10,9 @@ import 'prismjs/components/prism-javascript';
 import 'prismjs/themes/prism.css';
 import Input from "@/components/input/input";
 import treeAdapter from "parse5/lib/tree-adapters/default";
-import FullWidthLine from "@/components/fullWidthLine"; //Example style, you can use another\
+import FullWidthLine from "@/components/fullWidthLine";
+import ButtonSecondary from "@/components/button/buttonSecondary/button";
+import UploadInput from "@/components/input/UploadInput"; //Example style, you can use another\
 
 
 enum Progress {
@@ -120,6 +122,8 @@ export default function ChallengePage() {
                         <FullWidthLine/>
                     </div>
                     <div className={styles.buttonWrapper}>
+                        <UploadInput placeholder={"Upload Resume"}/>
+                        <Input placeholder={"Write a motivation..."} type={"text"}/>
                         <ButtonPrimary text={"Send Resume"} onClick={() => {
                             console.log("Send resume")
                         }}/>
