@@ -10,10 +10,11 @@ import 'prismjs/components/prism-javascript';
 import 'prismjs/themes/prism.css';
 import Input from "@/components/input/input";
 import FullWidthLine from "@/components/fullWidthLine";
-import UploadInput from "@/components/input/UploadInput"; //Example style, you can use another\
+import UploadInput from "@/components/input/UploadInput";
 import JSONCompany from "@/storage/companies.json"
 import {IChallenge} from "@/interfaces/IChallenge";
 import {ICompany} from "@/interfaces/ICompany";
+
 
 enum Progress {
     start,
@@ -36,6 +37,11 @@ export default function ChallengePage() {
     const [difficulty, setDifficulty] = useState<string>()
     const [language, setLanguage] = useState<string>()
 
+    function startChallenge() {
+        setProgress(Progress.progress)
+    }
+
+
     useEffect(() => {
         window.onfocus = () => {
             if (progress == Progress.progress) {
@@ -43,7 +49,6 @@ export default function ChallengePage() {
             }
         }
     })
-
 
     useEffect(() => {
         if (router.isReady){
@@ -77,9 +82,7 @@ export default function ChallengePage() {
                         <FullWidthLine/>
                     </div>
                     <div className={styles.buttonWrapper}>
-                        <ButtonPrimary text={"Start Challenge"} onClick={() => {
-                            setProgress(Progress.progress)
-                        }}/>
+                        <ButtonPrimary text={"Start Challenge"} onClick={startChallenge}/>
                     </div>
 
 

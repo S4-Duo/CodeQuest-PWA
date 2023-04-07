@@ -20,14 +20,14 @@
 
 @font-face {
   font-family: 'Gillroy Light';
-  src: url("../../fonts/Gilroy/Gilroy-Light.otf") format('opentype');
+  src: url("/public/fonts/Gilroy/Gilroy-Light.otf") format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Gillroy Bold';
-  src: url("../../fonts/Gilroy/Gilroy-ExtraBold.otf") format('opentype');
+  src: url("/public/fonts/Gilroy/Gilroy-ExtraBold.otf") format('opentype');
   font-weight: normal;
   font-style: normal;
 }
