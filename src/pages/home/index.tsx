@@ -21,7 +21,7 @@ export default function Home() {
 
     return (
         <div className={styles.homepage}>
-            <SmallTitle/>
+            <SmallTitle arrow={false}/>
             <Input placeholder={"Find companies"} type={"text"}/>
             <FilterWrapper/>
             <div className={styles.companiesWrapper}>

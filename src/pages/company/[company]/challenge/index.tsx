@@ -70,7 +70,7 @@ export default function ChallengePage() {
             {
                 (progress == Progress.start) &&
                 <>
-                    <SmallTitle/>
+                    <SmallTitle arrow={true}/>
                     {/*Here are coming all the rules before the challenge is started*/}
                     <div className={styles.rulesWrapper}>
                         <h2 className={styles.companyName}>{currentCompany?.name}</h2>
@@ -91,7 +91,7 @@ export default function ChallengePage() {
             {
                 (progress == Progress.progress) &&
                 <>
-                    <SmallTitle/>
+                    <SmallTitle arrow={true}/>
                     <div className={styles.questionWrapper}>
                         <Editor
                             className={styles.editor}
@@ -120,7 +120,7 @@ export default function ChallengePage() {
             {
                 (progress == Progress.ended) &&
                 <>
-                    <SmallTitle/>
+                    <SmallTitle arrow={true}/>
                     <div className={styles.rulesWrapper}>
                         <h2 className={styles.companyName}>19/20 Correct</h2>
                         <FullWidthLine/>

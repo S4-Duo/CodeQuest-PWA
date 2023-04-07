@@ -15,7 +15,7 @@ export default function ProfilePage(){
 
     return (
         <div className={styles.profilePage}>
-            <SmallTitle />
+            <SmallTitle arrow={true}/>
             <img className={styles.userImage} src={session?.user?.image!} alt="Profile image"/>
             <h2 className={styles.userName}>{session?.user?.name}</h2>
             <p className={styles.userDescription}>Fontys</p>

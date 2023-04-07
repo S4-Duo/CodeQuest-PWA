@@ -24,7 +24,7 @@ export default function CompanyDetail({wholeCompany}: PropTypes) {
 
     return (
         <div className={styles.companyDetailPage}>
-            <SmallTitle/>
+            <SmallTitle arrow={true}/>
             <BigCompanyCard Company={wholeCompany}/>
             <Navigation/>
         </div>

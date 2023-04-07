@@ -1,5 +1,17 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+
 .smallTitle{
     padding: var(--small-spacing);
     margin: 0 auto;
     text-align: center;
+}
+
+.arrowBack {
+    padding: var(--small-spacing) 0;
+    position: absolute;
+    filter: invert(1);
+    width: 2em;
 }
