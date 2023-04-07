@@ -1,6 +1,7 @@
 import styles from "./index.module.css"
 import {useRouter} from "next/router";
 import {useEffect} from "react";
+import Image from "next/image";
 
 interface PropTypes {
     arrow: boolean
@@ -17,7 +18,7 @@ export default function SmallTitle({arrow}: PropTypes){
     return(
         <div className={styles.container} onClick={navigateBack}>
             {
-                arrow && <img className={styles.arrowBack} src="/images/icons/arrow-back.svg" alt="arrow back"/>
+                arrow && <Image width={60} height={60} className={styles.arrowBack} src="/images/icons/arrow-back.svg" alt="arrow back"/>
             }
             <h2 className={styles.smallTitle}>CodeQuest</h2>
         </div>

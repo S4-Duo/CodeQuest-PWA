@@ -91,7 +91,7 @@ export default function ChallengePage() {
             {
                 (progress == Progress.progress) &&
                 <>
-                    <SmallTitle arrow={true}/>
+                    <SmallTitle arrow={false}/>
                     <div className={styles.questionWrapper}>
                         <Editor
                             className={styles.editor}
