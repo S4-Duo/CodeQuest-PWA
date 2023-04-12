@@ -14,10 +14,11 @@ import UploadInput from "@/components/input/UploadInput";
 import JSONCompany from "@/storage/companies.json"
 import {IChallenge} from "@/interfaces/IChallenge";
 import {ICompany} from "@/interfaces/ICompany";
-
+import Script from "next/script";
 
 enum Progress {
     start,
+    allowCamera,
     progress,
     ended,
 }
@@ -36,11 +37,14 @@ export default function ChallengePage() {
     const [initialTime, setInitialTime] = useState<string>()
     const [difficulty, setDifficulty] = useState<string>()
     const [language, setLanguage] = useState<string>()
+    const [cameraAllowed, setCameraAllowed] = useState(false)
+    const [timesLookedAway, setTimesLookedAway] = useState(0)
+    const [lookingState, setLookingState] = useState<number>()
+    const [prevLookingState, setPrevLookingState] = useState<number>()
 
     function startChallenge() {
         setProgress(Progress.progress)
     }
-
 
     useEffect(() => {
         window.onfocus = () => {
@@ -51,7 +55,7 @@ export default function ChallengePage() {
     })
 
     useEffect(() => {
-        if (router.isReady){
+        if (router.isReady) {
             setCurrentCompany(JSONCompany.companies.find(item => item.guid === company) as ICompany)
             setChallenges(currentCompany?.challenge?.challenges)
             setInitialTime(currentCompany?.challenge?.time)
@@ -64,6 +68,26 @@ export default function ChallengePage() {
     function isLastQuestion(): boolean {
         return currentQuestion == challenges!.length - 1;
     }
+
+    useEffect(() => {
+        if (cameraAllowed){
+            GazeCloudAPI.StartEyeTracking();
+
+            GazeCloudAPI.OnResult = function (GazeData: any) {
+                if (progress !== Progress.ended){
+                    console.log(GazeData?.state)
+                    setLookingState(GazeData?.state)
+                }
+            }
+        }
+    })
+
+    useEffect(() => {
+        if (lookingState == -1) {
+            setTimesLookedAway(timesLookedAway + 1)
+        }
+        console.log(timesLookedAway)
+    }, [lookingState])
 
     return (
         <div className={styles.challengePage}>
@@ -82,10 +106,27 @@ export default function ChallengePage() {
                         <FullWidthLine/>
                     </div>
                     <div className={styles.buttonWrapper}>
-                        <ButtonPrimary text={"Start Challenge"} onClick={startChallenge}/>
+                        <ButtonPrimary text={"Next"} onClick={() => setProgress(Progress.allowCamera)}/>
                     </div>
 
 
+                </>
+            }
+            {
+                (progress == Progress.allowCamera) &&
+                <>
+                    <SmallTitle arrow={true}/>
+                    {/*Here are coming all the rules before the challenge is started*/}
+                    <div className={styles.rulesWrapper}>
+                        <h2 className={styles.companyName}>Before we start</h2>
+                        <p className={styles.statsText}>We would like to have acces to your camera for detecting your face and eye tracking</p>
+                    </div>
+                    <div className={styles.buttonWrapper}>
+                        {
+                            cameraAllowed ? <ButtonPrimary text={"Start Challenge"} onClick={startChallenge}/>
+                                : <ButtonPrimary text={"Allow camera and start calibrating"} onClick={() => {setCameraAllowed(true)}}/>
+                        }
+                    </div>
                 </>
             }
             {
@@ -109,10 +150,13 @@ export default function ChallengePage() {
                     <div className={styles.buttonWrapper}>
                         {
                             isLastQuestion()
-                            ?
-                            <ButtonPrimary text={"Finish challenge"} onClick={() => setProgress(Progress.ended)}/>
-                            :
-                            <ButtonPrimary text={"Next Question"} onClick={() => {setCurrentQuestion(currentQuestion + 1)}}/>
+                                ?
+                                <ButtonPrimary text={"Finish challenge"}
+                                               onClick={() => setProgress(Progress.ended)}/>
+                                :
+                                <ButtonPrimary text={"Next Question"} onClick={() => {
+                                    setCurrentQuestion(currentQuestion + 1)
+                                }}/>
                         }
                     </div>
                 </>
@@ -127,15 +171,16 @@ export default function ChallengePage() {
                         <h3 className={styles.statsText}>Stats</h3>
                         <p className={styles.statsText}>Questions: 20</p>
                         <p className={styles.statsText}>Time: 10:000</p>
-                        <p className={styles.statsText}>Language: Javascript (JS)</p>
                         <p className={styles.statsText}>Difficulty: Medium</p>
                         <FullWidthLine/>
+                        <p className={styles.statsText}>Times looked away: {timesLookedAway}</p>
                         <p className={styles.statsText}>Page leaves: {pageLeave}</p>
                     </div>
                     <div className={styles.buttonWrapper}>
                         <UploadInput placeholder={"Upload Resume"}/>
                         <Input placeholder={"Write a motivation..."} type={"text"}/>
-                        <ButtonPrimary text={"Send Resume"} onClick={() => {}}/>
+                        <ButtonPrimary text={"Send Resume"} onClick={() => {
+                        }}/>
                     </div>
                 </>
             }
