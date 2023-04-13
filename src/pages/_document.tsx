@@ -8,7 +8,6 @@ export default function Document() {
             <Head>
                 <link rel="manifest" href="/manifest.json" />
                 <meta name="theme-color" content="#ffffff" />
-                <script src={"https://api.gazerecorder.com/GazeCloudAPI.js"}></script>
             </Head>
             <body>
             <Main />

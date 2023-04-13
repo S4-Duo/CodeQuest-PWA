@@ -1,5 +1,5 @@
 import {useRouter} from "next/router";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./index.module.css"
 import SmallTitle from "@/components/SmallTitle";
 import ButtonPrimary from "@/components/button/buttonPrimary/button";
@@ -91,6 +91,8 @@ export default function ChallengePage() {
 
     return (
         <div className={styles.challengePage}>
+            <Script src={"https://api.gazerecorder.com/GazeCloudAPI.js"}></Script>
+
             {
                 (progress == Progress.start) &&
                 <>
