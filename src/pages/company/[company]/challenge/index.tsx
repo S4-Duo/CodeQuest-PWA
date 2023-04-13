@@ -16,6 +16,8 @@ import {IChallenge} from "@/interfaces/IChallenge";
 import {ICompany} from "@/interfaces/ICompany";
 import Script from "next/script";
 
+declare const GazeCloudAPI: any;
+
 enum Progress {
     start,
     allowCamera,
